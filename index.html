@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ErtuStudio Apps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ----------------- Genel Stil ----------------- */
+        * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+        body {background:#f0f4f8; color:#333;}
+        a {text-decoration:none;}
+        button {cursor:pointer; border:none; outline:none;}
+
+        /* ----------------- Header ----------------- */
+        header {
+          background: linear-gradient(135deg,#4CAF50,#3A9D23);
+          color:white;
+          text-align:center;
+          padding:50px 20px;
+          animation: fadeInDown 1s ease;
+        }
+        header h1 {font-size:3em; margin-bottom:10px;}
+        header p {font-size:1.2em; opacity:0.8;}
+
+        /* ----------------- Animasyonlar ----------------- */
+        @keyframes fadeInDown {
+          from {opacity:0; transform: translateY(-50px);}
+          to {opacity:1; transform:translateY(0);}
+        }
+        @keyframes fadeInUp {
+          from {opacity:0; transform: translateY(50px);}
+          to {opacity:1; transform:translateY(0);}
+        }
+
+        /* ----------------- Bölümler ----------------- */
+        section {max-width:900px; margin:50px auto; padding:20px;}
+        h2 {text-align:center; margin-bottom:30px; font-size:2em; color:#4CAF50; animation: fadeInUp 1s ease;}
+
+        /* ----------------- Kartlar ----------------- */
+        .cards {display:flex; flex-wrap:wrap; gap:20px; justify-content:center;}
+        .card {
+          background:white; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1);
+          width:250px; padding:20px; text-align:center; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {transform: translateY(-10px); box-shadow:0 15px 25px rgba(0,0,0,0.2);}
+        .card img {width:100px; border-radius:15px; margin-bottom:15px;}
+        .card h3 {margin-bottom:10px; color:#333;}
+        .card p {font-size:0.9em; opacity:0.8; margin-bottom:15px;}
+        .card button {
+          background:#4CAF50; color:white; padding:10px 20px; border-radius:8px; font-weight:600;
+          transition: background 0.3s;
+        }
+        .card button:hover {background:#3A9D23;}
+
+        /* ----------------- Footer ----------------- */
+        footer {
+          text-align:center; padding:20px; background:#333; color:white; margin-top:50px;
+        }
+
+        /* ----------------- Responsive ----------------- */
+        @media(max-width:768px) {
+          .cards {flex-direction:column; align-items:center;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ErtuStudio Apps</h1>
+    <p>En yeni uygulamalarımı keşfet, indir ve kullan 🚀</p>
+</header>
+
+<section>
+    <h2>Uygulamalarım</h2>
+    <div class="cards">
+        <!-- Örnek Kart 1 -->
+        <div class="card">
+            <img src="app1.png" alt="Masaüstü Düzenleyici">
+            <h3>Masaüstü Düzenleyici Lite</h3>
+            <p>Dosyalarınızı hızlı ve kolay şekilde düzenleyin. Windows için optimize edildi.</p>
+            <a href="https://gumroad.com/l/masaustu_duzenleyici_lite" target="_blank">
+                <button>Satın Al</button>
+            </a>
+        </div>
+
+        <!-- Örnek Kart 2 -->
+        <div class="card">
+            <img src="app2.png" alt="Sesli Takvim">
+            <h3>Sesli Takvim</h3>
+            <p>Artık tarihleri unutmaya son! İstediğiniz ismi verin arayüzü istedğiniz tarzda değiştirin.</p>
+            <a href="https://gumroad.com/l/seslitakvim" target="_blank">
+                <button>Satın Al</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <img src="app4.png" alt="Masaüstü Düzenleyici">
+            <h3>Masaüstü Düzenleyici Pro</h3>
+            <p>Dosyalarınızı hızlı ve kolay şekilde düzenleyin.Arayüzü ayarlayın ve daha birçok özellik. Windows için optimize edildi.</p>
+            <a href="https://gumroad.com/l/masaustu_duzenleyici_pro" target="_blank">
+                <button>Satın Al</button>
+            </a>
+        </div>
+
+        <!-- Örnek Kart 3 -->
+        <div class="card">
+            <img src="app3.png" alt="Kişisel Asistan">
+            <h3>Sesli Kişisel Asistan</h3>
+            <p>Kendi özel uygulamalarınızı yönetin istediğiniz ismi verin ve üretkenliği arttırın...</p>
+            <a href="https://gumroad.com/l/kişisel_asistan" target="_blank">
+                <button>Satın Al</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 ErtuStudio Apps | Tüm hakları saklıdır
+</footer>
+
+</body>
+</html>
