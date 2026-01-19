@@ -1,21 +1,12 @@
-// Animasyon (eski kodun)
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card, index) => {
-    card.style.opacity = "0";
-    card.style.transform = "translateY(50px)";
-    setTimeout(() => {
-      card.style.transition = "all 0.5s ease";
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }, index * 200);
-  });
-});
-
 // 🔥 Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAIadkhnM7RbwgB6nI29fi1M83mhk4Rmx0",
@@ -29,29 +20,35 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Yorumları yükle
+// 🧠 HTML elemanları
 const commentsDiv = document.getElementById("comments");
+const form = document.getElementById("commentForm");
+const nameInput = document.getElementById("name");
+const commentInput = document.getElementById("comment");
 
+// 📥 Yorumları yükle
 async function loadComments() {
   commentsDiv.innerHTML = "";
   const snapshot = await getDocs(collection(db, "comments"));
+
   snapshot.forEach(doc => {
     const d = doc.data();
-    commentsDiv.innerHTML += `<p><strong>${d.name}</strong>: ${d.comment}</p>`;
+    commentsDiv.innerHTML += `
+      <p><strong>${d.name}</strong>: ${d.comment}</p>
+    `;
   });
 }
+
 loadComments();
 
-// Yorum ekle
-document.getElementById("commentForm").addEventListener("submit", async (e) => {
+// 📤 Yorum ekle
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   await addDoc(collection(db, "comments"), {
-    name: name.value,
-    comment: comment.value,
+    name: nameInput.value,
+    comment: commentInput.value,
     createdAt: serverTimestamp()
   });
 
-  e.target.reset();
-  loadComments();
-});
+  form.reset
