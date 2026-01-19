@@ -29,9 +29,9 @@ const commentInput = document.getElementById("comment");
 // 📥 Yorumları yükle
 async function loadComments() {
   commentsDiv.innerHTML = "";
-  const snapshot = await getDocs(collection(db, "comments"));
 
-  snapshot.forEach(doc => {
+  const snapshot = await getDocs(collection(db, "comments"));
+  snapshot.forEach((doc) => {
     const d = doc.data();
     commentsDiv.innerHTML += `
       <p><strong>${d.name}</strong>: ${d.comment}</p>
@@ -51,4 +51,6 @@ form.addEventListener("submit", async (e) => {
     createdAt: serverTimestamp()
   });
 
-  form.reset
+  form.reset();
+  loadComments();
+});
