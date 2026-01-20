@@ -14,6 +14,27 @@ window.goHome = function () {
   window.scrollTo(0, 0);
 };
 
+// ===== FOTO BÜYÜTME MODAL =====
+const imageModal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+window.openImage = function (src) {
+  modalImg.src = src;
+  imageModal.style.display = "flex";
+};
+
+window.closeImage = function () {
+  imageModal.style.display = "none";
+  modalImg.src = "";
+};
+
+// ESC ile kapatma
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeImage();
+  }
+});
+
 // ===== FIREBASE YORUMLAR (AYNEN KORUNDU) =====
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
