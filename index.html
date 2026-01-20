@@ -56,9 +56,9 @@
    <h2>FocusTimer Nedir?</h2>
   
   <div class="screens">
-    <img src="focus1.png">
-    <img src="focus2.png">
-  </div>
+  <img src="focus1.png" onclick="openImage(this.src)">
+  <img src="focus2.png" onclick="openImage(this.src)">
+</div>
 
   <p><strong>FocusTimer</strong>, odaklanarak çalışmayı, ders yapmayı veya üretkenliği artırmayı amaçlayan bir zaman yönetimi uygulamasıdır. Temel mantığı; belirlenen süre boyunca dikkat dağıtmadan çalışmayı, ardından kısa molalarla zihni dinlendirmeyi sağlamaktır. Özellikle ders çalışan öğrenciler, yazılım geliştiriciler, tasarımcılar ve uzun süre bilgisayar başında odak gerektiren işler yapan herkes için uygundur.</p>
 
@@ -178,5 +178,11 @@
 </footer>
 
 <script type="module" src="script.js"></script>
+
+<!-- FOTO BÜYÜTME MODALI -->
+<div id="imageModal" class="img-modal" onclick="closeImage()">
+  <img id="modalImg">
+</div>
+  
 </body>
 </html>
