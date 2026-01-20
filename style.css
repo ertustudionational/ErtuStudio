@@ -380,3 +380,18 @@ header p {
     max-height: 80%;
   }
 }
+
+/* ===== MOBİLDE FOCUS TIMER GÖRSELLER ===== */
+@media (max-width: 600px) {
+  .screens {
+    flex-direction: column;   /* altlı üstlü */
+    align-items: center;
+  }
+
+  .screens img {
+    width: 90%;              /* büyüklük */
+    max-width: 320px;        /* çok taşmasın */
+    margin-bottom: 15px;
+    border-radius: 14px;
+  }
+}
