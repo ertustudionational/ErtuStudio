@@ -1,4 +1,20 @@
-// 🔥 Firebase
+// ===== SAYFA GEÇİŞLERİ =====
+const homePage = document.getElementById("homePage");
+const focusPage = document.getElementById("focusPage");
+
+window.openFocusTimer = function () {
+  homePage.classList.remove("active");
+  focusPage.classList.add("active");
+  window.scrollTo(0, 0);
+};
+
+window.goHome = function () {
+  focusPage.classList.remove("active");
+  homePage.classList.add("active");
+  window.scrollTo(0, 0);
+};
+
+// ===== FIREBASE YORUMLAR (AYNEN KORUNDU) =====
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getFirestore,
@@ -20,37 +36,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 🧠 HTML elemanları
 const commentsDiv = document.getElementById("comments");
 const form = document.getElementById("commentForm");
 const nameInput = document.getElementById("name");
 const commentInput = document.getElementById("comment");
 
-// 📥 Yorumları yükle
 async function loadComments() {
   commentsDiv.innerHTML = "";
-
   const snapshot = await getDocs(collection(db, "comments"));
   snapshot.forEach((doc) => {
     const d = doc.data();
-    commentsDiv.innerHTML += `
-      <p><strong>${d.name}</strong>: ${d.comment}</p>
-    `;
+    commentsDiv.innerHTML += `<p><strong>${d.name}</strong>: ${d.comment}</p>`;
   });
 }
 
 loadComments();
 
-// 📤 Yorum ekle
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   await addDoc(collection(db, "comments"), {
     name: nameInput.value,
     comment: commentInput.value,
     createdAt: serverTimestamp()
   });
-
   form.reset();
   loadComments();
 });
