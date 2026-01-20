@@ -1,77 +1,177 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ErtuStudio Apps</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ErtuStudio Apps</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>ErtuStudio Apps</h1>
-    <p>En yeni uygulamalarımı keşfet, indir ve kullan</p>
+<header id="mainHeader">
+  <h1>ErtuStudio Apps</h1>
+  <p>En yeni uygulamalarımı keşfet, indir ve kullan</p>
 </header>
 
-<section>
-    <h2>Uygulamalar</h2>
-    <div class="cards">
+<!-- ANA SAYFA -->
+<section id="homePage" class="page active">
+  <h2>Uygulamalar</h2>
 
-        <div class="card">
-            <img src="app1.png">
-            <h3>Masaüstü Düzenleyici Lite</h3>
-            <p>Dosyalarınızı hızlı ve kolay şekilde düzenleyin.</p>
-            <a href="https://gumroad.com/l/masaustu_duzenleyici_lite" target="_blank">
-                <button>Satın Al</button>
-            </a>
-        </div>
+  <div class="cards">
 
-        <div class="card">
-            <img src="app2.png">
-            <h3>Sesli Takvim</h3>
-            <p>Artık tarihleri unutmaya son!</p>
-            <a href="https://gumroad.com/l/seslitakvim" target="_blank">
-                <button>Satın Al</button>
-            </a>
-        </div>
+  <!-- FOCUS TIMER -->
+  <div class="card clickable" onclick="openFocusTimer()">
+    <img src="app_focus.png">
+    <h3>FocusTimer</h3>
+    <p>Odaklanmanı maksimuma çıkar.</p>
+    <button>Download (.exe)</button>
+  </div>
 
-        <div class="card">
-            <img src="app4.png">
-            <h3>Masaüstü Düzenleyici</h3>
-            <p>Gelişmiş özellikler, modern arayüz.</p>
-            <a href="https://gumroad.com/l/masaustu_duzenleyici_pro" target="_blank">
-                <button>Satın Al</button>
-            </a>
-        </div>
+  <!-- COMING SOON KART -->
+  <div class="card coming">
+    <div class="coming-overlay">ÇOK YAKINDA</div>
+    <img src="app1.png">
+    <h3>Sesli Kişisel Asistan</h3>
+    <p>Dosyalarınızı hızlı ve kolay düzenleyin.</p>
+    <button disabled>Download (.exe)</button>
+  </div>
+    
+  <div class="card coming">
+    <div class="coming-overlay">ÇOK YAKINDA</div>
+    <img src="app1.png">
+    <h3>Sesli Takvim</h3>
+    <p>Tarihler, özel günler ve yapılacakları unutmaya son</p>
+    <button disabled>Download (.exe)</button>
+  </div>
 
-        <div class="card">
-            <img src="app3.png">
-            <h3>Sesli Kişisel Asistan</h3>
-            <p>Üretkenliğini arttır.</p>
-            <a href="https://gumroad.com/l/kişisel_asistan" target="_blank">
-                <button>Satın Al</button>
-            </a>
-        </div>
-
-    </div>
+</div>
 </section>
 
-<!-- 🔽 YORUM BÖLÜMÜ (EKLENEN TEK YER) -->
+<!-- FOCUS TIMER SAYFASI -->
+<section id="focusPage" class="page">
+  <button class="backBtn" onclick="goHome()">← Geri</button>
+
+   <h2>FocusTimer Nedir?</h2>
+  
+  <div class="screens">
+    <img src="focus1.png">
+    <img src="focus2.png">
+  </div>
+
+  <p><strong>FocusTimer</strong>, odaklanarak çalışmayı, ders yapmayı veya üretkenliği artırmayı amaçlayan bir zaman yönetimi uygulamasıdır. Temel mantığı; belirlenen süre boyunca dikkat dağıtmadan çalışmayı, ardından kısa molalarla zihni dinlendirmeyi sağlamaktır. Özellikle ders çalışan öğrenciler, yazılım geliştiriciler, tasarımcılar ve uzun süre bilgisayar başında odak gerektiren işler yapan herkes için uygundur.</p>
+
+  <hr>
+
+  <h3>FocusTimer Ne İşe Yarar?</h3>
+  <ul>
+    <li>📚 Ders çalışırken dikkatin dağılmasını azaltır</li>
+    <li>💻 Kod yazarken veya proje geliştirirken zamanı verimli kullanmanı sağlar</li>
+    <li>⏱️ Çalışma–mola dengesini otomatik kurar</li>
+    <li>🎯 Günlük hedeflere daha disiplinli ulaşmana yardımcı olur</li>
+    <li>🧠 Uzun süreli çalışmalarda zihinsel yorgunluğu azaltır</li>
+  </ul>
+
+  <hr>
+
+  <h3>Kullanım Alanları</h3>
+  <ul>
+    <li><strong>Öğrenciler:</strong> LGS, YKS, okul dersleri, ödev ve konu tekrarları</li>
+    <li><strong>Yazılımcılar:</strong> Kodlama seansları, bug fixing, proje geliştirme</li>
+    <li><strong>Tasarımcılar:</strong> Uzun süreli tasarım ve çizim çalışmaları</li>
+    <li><strong>Ofis Çalışanları:</strong> Rapor yazımı, analiz, masa başı işler</li>
+
+  </ul>
+
+  <hr>
+
+  <h3>Uygulama Arayüzü ve Tuşların Görevleri</h3>
+
+  <p><strong>▶️ Başlat (Start) Butonu</strong></p>
+  <ul>
+    <li>Ayarlanan süreyi başlatır</li>
+    <li>Zaman geri saymaya başlar</li>
+    <li>Çalışma modunu aktif hale getirir</li>
+  </ul>
+  
+  <p><strong>⏸️ Duraklat (Pause) Butonu</strong></p>
+  <ul>
+    <li>Zamanı geçici olarak durdurur</li>
+    <li>Kısa bir ara vermek istediğinde kullanılır</li>
+  </ul>
+
+  <p><strong>🔄 Sıfırla (Reset) Butonu</strong></p>
+  <ul>
+    <li>Zamanlayıcıyı başa alır</li>
+    <li>Mevcut oturumu iptal eder</li>
+  </ul>
+
+  <p><strong>🔔 Bildirim </strong></p>
+  <ul>
+    <li>Süre bittiğinde görsel uyarı verir</li>
+  </ul>
+
+  <hr>
+
+  <h3>Nasıl Kullanılır?</h3>
+  <ol>
+    <li>Uygulamayı aç</li>
+    <li>Çalışma süresini belirle (örnek: 25 dakika)</li>
+    <li><strong>Start</strong> butonuna bas</li>
+    <li>Süre bitene kadar sadece çalışmaya odaklan</li>
+    <li>Süre dolduğunda mola ver</li>
+    <li>Mola bitince yeni çalışma başlar</li>
+  </ol>
+
+  <hr>
+
+
+  <hr>
+
+  <h3>FocusTimer Kimler İçin Uygun?</h3>
+  <ul>
+    <li>Odaklanmakta zorlananlar</li>
+    <li>Zamanı planlı kullanmak isteyenler</li>
+    <li>Disiplin kazanmak isteyen öğrenciler</li>
+    <li>Üretkenliğini artırmak isteyen herkes</li>
+  </ul>
+
+  <hr>
+
+  <h3>Sonuç</h3>
+  <p><strong>FocusTimer</strong>, basit ama etkili yapısıyla odaklanmayı alışkanlık haline getirmeni sağlar. Düzenli kullanıldığında ders başarısını, iş verimini ve zaman yönetimini gözle görülür şekilde artırır.</p>
+
+  <blockquote>
+    “Odaklanmak bir yetenek değil, geliştirilebilir bir alışkanlıktır.”
+  </blockquote>
+
+  <p><strong>ErtuStudio</strong> tarafından geliştirilen FocusTimer ile zamanı sen yönet </p>
+
+</div>
+
+  <div class="downloadBox">
+    <button>Windows (.exe) İndir</button>
+    <button class="soon">Android (Çok Yakında)</button>
+  </div>
+
+</section>
+
+<!-- YORUMLAR -->
 <section>
-    <h2>Kullanıcı Yorumları</h2>
+  <h2>Kullanıcı Yorumları</h2>
 
-    <div id="comments"></div>
+  <div id="comments"></div>
 
-    <form id="commentForm">
-        <input type="text" id="name" placeholder="Adınız" required>
-        <textarea id="comment" placeholder="Yorumunuz" required></textarea>
-        <button type="submit">Gönder</button>
-    </form>
+  <form id="commentForm">
+    <input type="text" id="name" placeholder="Adınız" required>
+    <textarea id="comment" placeholder="Yorumunuz" required></textarea>
+    <button type="submit">Gönder</button>
+  </form>
 </section>
 
 <footer>
-    © 2025 ErtuStudio Apps | Tüm hakları saklıdır
+  © 2025 ErtuStudio Apps | Tüm hakları saklıdır
 </footer>
 
 <script type="module" src="script.js"></script>
