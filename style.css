@@ -1,70 +1,335 @@
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-body {background:#f0f4f8; color:#333;}
-
-header {
-  background: linear-gradient(135deg,#4CAF50,#3A9D23);
-  color:white;
-  text-align:center;
-  padding:60px 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-header h1 {font-size:3em;}
-header p {opacity:0.85;}
+body {
+  background: #f0f4f8;
+  color: #333;
+}
 
-section {max-width:900px; margin:50px auto; padding:20px;}
-h2 {text-align:center; margin-bottom:30px; color:#4CAF50;}
+header {
+  background: linear-gradient(135deg, #4CAF50, #3A9D23);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #4CAF50;
+}
 
 .cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
-  background:white;
-  width:250px;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.1);
-  text-align:center;
+  background: white;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform .3s;
 }
 
-.card img {width:100px; margin-bottom:15px;}
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
 .card button {
-  background:#4CAF50;
-  color:white;
-  padding:10px 20px;
-  border-radius:8px;
-  border:none;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* YORUMLAR */
+/* SAYFA GEÇİŞ */
+.page {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOCUS TIMER */
+.backBtn {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.downloadBox {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.downloadBox .soon {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.screens {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.screens img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+/* YORUMLAR BOZULMA FIX */
 #comments p {
-  background:white;
-  padding:10px;
-  border-radius:8px;
-  margin-bottom:10px;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 #commentForm {
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  max-width:400px;
-  margin:auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
 }
 
 #commentForm input,
 #commentForm textarea {
-  padding:10px;
-  border-radius:6px;
-  border:1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 footer {
-  background:#333;
-  color:white;
-  text-align:center;
-  padding:20px;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ===== SAYFA GEÇİŞ ===== */
+.page {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TIKLANABİLİR KART ===== */
+.card.clickable {
+  cursor: pointer;
+}
+
+/* ===== COMING SOON OVERLAY ===== */
+.card.coming {
+  position: relative;
+}
+
+.coming-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+/* ===== GERİ BUTONU ===== */
+.backBtn {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* ===== COMMENT FORM FIX ===== */
+#commentForm input,
+#commentForm textarea {
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ===== DOWNLOAD BUTTONS ===== */
+.downloadBox {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.downloadBox button {
+  min-width: 220px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* WINDOWS */
+.downloadBox button:first-child {
+  background: linear-gradient(135deg, #4CAF50, #3A9D23);
+  color: white;
+}
+
+.downloadBox button:first-child:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(76, 175, 80, 0.45);
+}
+
+/* ANDROID - COMING SOON */
+.downloadBox button.soon {
+  background: #111;
+  color: #aaa;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.downloadBox button.soon::after {
+  content: "ÇOK YAKINDA";
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #666;
+}
+
+/* ================================
+   FOCUS TIMER METİN BOYUTLARI
+   ================================ */
+
+#focusPage {
+  animation: fadeIn 0.6s ease;
+}
+
+/* Ana başlık */
+#focusPage h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+/* Alt başlıklar */
+#focusPage h3 {
+  font-size: 22px;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
+
+/* Paragraflar */
+#focusPage p {
+  font-size: 17.5px;
+  line-height: 1.75;
+  margin-bottom: 15px;
+}
+
+/* Listeler */
+#focusPage ul li,
+#focusPage ol li {
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* Alıntı */
+#focusPage blockquote {
+  font-size: 18px;
+  font-style: italic;
+  border-left: 4px solid #2ecc71;
+  padding-left: 15px;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* Ayırıcı çizgi */
+#focusPage hr {
+  margin: 35px 0;
+  opacity: 0.3;
+}
+
+/* Fade animasyonu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HEADER YAZI BOYUTLARI ===== */
+header h1 {
+  font-size: 2.7rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.6rem;
+  }
+
+  header p {
+    font-size: 1.2rem;
+  }
 }
