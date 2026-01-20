@@ -395,3 +395,19 @@ header p {
     border-radius: 14px;
   }
 }
+
+@media (max-width: 600px) {
+  .downloadBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .downloadBox button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .downloadBox button.soon::after {
+    bottom: -18px;
+  }
+}
